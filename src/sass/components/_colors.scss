@@ -1,0 +1,85 @@
+//#region COLORS
+
+$primary-color: white;
+$secondary-color: black;
+$black: #272727;
+$light-grey: #A0A0A0;
+$grey-clock: #ABB3BE;
+$grey: rgb(50, 50, 50);
+$past-events: #f2f4f5;
+
+.primary-color {
+    color: $primary-color;
+}
+
+.primary-color-fill {
+    fill: $primary-color;
+
+    &--transparent {
+        opacity: .5;
+    }
+}
+
+.secondary-color {
+    color: $secondary-color;
+}
+
+
+.fill-secondary-color {
+    fill: $secondary-color;
+}
+
+.white {
+    color: white;
+}
+
+.black-full {
+    color: #000;
+}
+
+.fill-white {
+    fill: white;
+
+    &--transparent {
+        fill: rgba(255, 255, 255, .8);
+    }
+}
+
+.black {
+    color: $black;
+
+    &--hover:hover {
+        color: $black;
+    }
+}
+
+.black-fill {
+    fill: $black;
+}
+
+.grey-fill {
+    fill: grey;
+
+    &--transparent {
+        opacity: .5;
+    }
+}
+
+.light-grey-fill {
+    fill: $light-grey;
+
+    &--transparent {
+        opacity: .5;
+    }
+}
+
+.primary-background {
+    background-color: $primary-color;
+}
+
+.background-secondary {
+    background-color: $secondary-color;
+}
+
+//#endregion
+
