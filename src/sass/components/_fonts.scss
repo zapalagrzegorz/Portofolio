@@ -14,7 +14,7 @@ h1 {
   font-size: 26px;
 
   @include media-breakpoint-up(md) {
-    font-size: 3.815rem
+    font-size: 4.209rem
     // 3.815
   }
 }
@@ -25,7 +25,7 @@ h2 {
   line-height: 1.6;
 
   @include media-breakpoint-up(md) {
-    font-size: 3.052rem; 
+    font-size: 3.157rem; 
   }
 }
 
@@ -34,7 +34,7 @@ h3 {
   font-size: 21px;
 
   @include media-breakpoint-up(md) {
-    font-size: 2.441rem;
+    font-size: 2.369rem;
   }
 }
 
