@@ -3,9 +3,6 @@
 $primary-color: white;
 $secondary-color: black;
 $black: #272727;
-$light-grey: #A0A0A0;
-$grey-clock: #ABB3BE;
-$grey: rgb(50, 50, 50);
 $past-events: #f2f4f5;
 
 .primary-color {
@@ -65,13 +62,6 @@ $past-events: #f2f4f5;
     }
 }
 
-.light-grey-fill {
-    fill: $light-grey;
-
-    &--transparent {
-        opacity: .5;
-    }
-}
 
 .primary-background {
     background-color: $primary-color;

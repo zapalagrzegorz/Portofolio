@@ -5,25 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Grzegorz Zapała - portofolio</title>
+    <link rel="stylesheet" href="css\main.css" />
+    <!-- wprwadzić subset abcdefgh -->
     <link
+      href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,100i,400,400i,700,700i&display=swap"
       rel="stylesheet"
-      href="node_modules\bootstrap\dist\css\bootstrap-grid.css"
-    />
-    <link
-      rel="stylesheet"
-      href="dist/main.css"
     />
   </head>
   <body class="">
+    <!-- header -->
     <div class="container">
       <div class="row">
-        <div class="col-10 offset-xs-2 small-10">
-          <header>
-            <hgroup>
-              <h1>
+        <div class="col-10 offset-2">
+          <header class="primary-color header">
+            <hgroup class="font-bold">
+              <h1 class="header__title">
                 Strony www i proste aplikacje JS
               </h1>
-              <h2>
+              <h2 class="header__subtitle " style="">
                 <span>P</span>
                 <span>o</span>
                 <span>r</span>
@@ -33,7 +32,7 @@
                 <span>l</span>
                 <span>i</span>
                 <span>o</span>
-
+                <span class="mr-2"></span>
                 <span>G</span>
                 <span>r</span>
                 <span>z</span>
@@ -42,7 +41,7 @@
                 <span>o</span>
                 <span>r</span>
                 <span>z</span>
-
+                <span class="mr-2"></span>
                 <span>Z</span>
                 <span>a</span>
                 <span>p</span>
@@ -57,42 +56,45 @@
       </div>
     </div>
 
+    <!-- main -->
     <main>
-      <div class="row no-gutters">
-        <div class="column text">
-          <section>
-            <h2>W pracy</h2>
-            <article>
-              <h3>Serwis IR Rainbow</h3>
-              <p>customizacja wykresów AmCharts</p>
-              <a>Zobacz</a>
-            </article>
+      <div class="container">
+        <div class="row no-gutters">
+          <div class="column col-5 offset-2 text">
+            <section>
+              <h2>W pracy</h2>
+              <article>
+                <h3>Serwis IR Rainbow</h3>
+                <p>customizacja wykresów AmCharts</p>
+                <a>Zobacz</a>
+              </article>
 
-            <article>
-              <h3>Serwis dla dziennikarzy Tauron</h3>
-              <p>Witryna uwzględniająca wytyczne UI grupy Tauron</p>
-              <a>Zobacz</a>
-            </article>
+              <article>
+                <h3>Serwis dla dziennikarzy Tauron</h3>
+                <p>Witryna uwzględniająca wytyczne UI grupy Tauron</p>
+                <a>Zobacz</a>
+              </article>
 
-            <article>
-              <h3>Szablon serwisu dla dziennikarzy - przykład Runmageddon</h3>
-              <p>
-                Serwis uwzględniający szereg modyfikacji dla indywidualnego
-                wdrożenia
-              </p>
-              <a>Zobacz</a>
-            </article>
-          </section>
+              <article>
+                <h3>Szablon serwisu dla dziennikarzy - przykład Runmageddon</h3>
+                <p>
+                  Serwis uwzględniający szereg modyfikacji dla indywidualnego
+                  wdrożenia
+                </p>
+                <a>Zobacz</a>
+              </article>
+            </section>
 
-          <section>
-            <h2>W domu</h2>
-          </section>
-        </div>
+            <section>
+              <h2>W domu</h2>
+            </section>
+          </div>
 
-        <div class="column pics">
-          <picture data-picture-1="">
-            <source srcset="" />
-          </picture>
+          <div class="column column col-5 pics">
+            <picture data-picture-1="">
+              <source srcset="" />
+            </picture>
+          </div>
         </div>
       </div>
     </main>

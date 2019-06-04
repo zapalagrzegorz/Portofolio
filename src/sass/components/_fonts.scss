@@ -1,111 +1,121 @@
 //#region fonts
 
+.h1,
+h1,
+.h2,
+h2,
+.h3,
+h3 {
+  color: inherit;
+}
 
 .h1,
 h1 {
-    font-size: 26px;
+  font-size: 26px;
 
-    @include media-breakpoint-up(md) {
-        font-size: 48px;
-    }
+  @include media-breakpoint-up(md) {
+    font-size: 3.815rem
+    // 3.815
+  }
 }
 
 .h2,
 h2 {
-    font-size: 22px;
-    line-height: 1.6;
+  font-size: 22px;
+  line-height: 1.6;
 
-    @include media-breakpoint-up(md) {
-        font-size: 40px;
-    }
+  @include media-breakpoint-up(md) {
+    font-size: 3.052rem; 
+  }
 }
 
 .h3,
 h3 {
-    font-size: 21px;
+  font-size: 21px;
 
-    @include media-breakpoint-up(md) {
-        font-size: 31px;
-    }
+  @include media-breakpoint-up(md) {
+    font-size: 2.441rem;
+  }
 }
 
 .h4,
 h4 {
-    font-size: 20px;
+  font-size: 20px;
 
-    @include media-breakpoint-up(md) {
-        font-size: 25px;
-    }
+  @include media-breakpoint-up(md) {
+    font-size: 25px;
+  }
 }
 
 .h5,
 h5 {
-    font-size: 19px;
+  font-size: 19px;
 
-    @include media-breakpoint-up(md) {
-        font-size: 22px;
-    }
+  @include media-breakpoint-up(md) {
+    font-size: 22px;
+  }
 }
 
 .h6,
 h6 {
-    font-size: 16px;
+  font-size: 16px;
 
-    @include media-breakpoint-up(md){
-        font-size: 18px;
-    }
+  @include media-breakpoint-up(md) {
+    font-size: 18px;
+  }
 }
 
-
 .font-normal {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 .font-bolder {
-    font-weight: bolder;
+  font-weight: bolder;
+}
+.font-bold {
+  font-weight: bold;
 }
 
 .font-lighter {
-    font-weight: lighter;
+  font-weight: lighter;
 }
 
 .font-bigger {
-    font-size: larger;
+  font-size: larger;
 }
 
 .font-smaller {
-    font-size: smaller;
+  font-size: smaller;
 }
 
 .to-upper {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .to-lower {
-    text-transform: lowercase;
+  text-transform: lowercase;
 }
 
 .font-style-inherit {
-    font-style: inherit;
-} 
-
+  font-style: inherit;
+}
 
 .font-16 {
-    font-size: rem-calc(16);
+  font-size: rem-calc(16);
 }
 
 .font-15 {
-    font-size: rem-calc(15px);
+  font-size: rem-calc(15px);
 }
 
 .font-13 {
-    font-size: rem-calc(13px);
+  font-size: rem-calc(13px);
 }
 
 .font-12 {
-    font-size: rem-calc(12px);
+  font-size: rem-calc(12px);
 }
 
 .font-11 {
-    font-size: rem-calc(11px);
+  font-size: rem-calc(11px);
 }
