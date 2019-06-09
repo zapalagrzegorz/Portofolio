@@ -1,7 +1,21 @@
 .exposition__img-container {
-    background-color: hsl(119, 59%, 27%);
+    // background-color: hsl(119, 59%, 27%);
+    transition: background-color .3s linear, max-width .6s ease-in-out;
+    // trans
+    max-width: 2px;
+    background-color:transparent;
+    &--visible {
+        max-width: 50%
+    }
 }
 
 .exposition__item {
-    margin-bottom: 150px;
+    margin-bottom: 200vh;
+}
+
+.exposition__img {
+    position: sticky;
+    top: 70px;
+    margin-top: 20vh;
+
 }
