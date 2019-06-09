@@ -1,13 +1,7 @@
 /* globals getDebouncer */
 
 document.addEventListener("DOMContentLoaded", function() {
-  // set up observer
-  //   var percentTreshold = [...new Array(100)].map(
-  //     (value, index) => (index + 1) / 100
-  //   );
-  //   var percentTreshold2 = [0.01, 0.02, 0.03, 0.04];
-  //   var basedHue = 119;
-
+  window.addEventListener("scroll", getDebouncer(changeColor));
   var options = {
     root: null,
     rootMargin: "0px 0px -100px 0px",
@@ -15,15 +9,15 @@ document.addEventListener("DOMContentLoaded", function() {
   };
 
   var observePicturesOptions = {
-    threshold: 0
+    threshold: [0, 0.65],
+    rootMargin: "0px 0px -40% 0px"
   };
-  //   observers[i] = new IntersectionObserver(intersectionCallback, observerOptions);
-  //   observers[i].observe(document.querySelector("#" + boxID));
 
   var isChangingColorFunAttached = false;
 
   var exposingBlock = document.querySelector(".exposition__img-container-js");
   var randomStartingColorOffset = Math.random() * 300;
+  var imageContainer = document.querySelector(".exposition__img-js");
 
   function changeColor() {
     var exposingTopOffset = exposingBlock.getBoundingClientRect().y;
@@ -35,25 +29,30 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function changePictureCb(entry) {
-    if (entry.isIntersecting && entry.target.dataset.picture) {
-      document
-        .querySelector(".exposition__img-js")
-        .setAttribute("src", entry.target.dataset.picture);
-    }
+	var imageTarget = document.querySelector(".exposition__img-js");
+    if (
+	  entry.isIntersecting &&
+	  entry.intersectionRatio < 0.8 &&
+      entry.target.dataset.picture &&
+      imageContainer.getAttribute("src") !== entry.target.dataset.picture
+    ) {
+	  
+	  imageTarget.classList.remove("fadedOut");  
+	  imageTarget.classList.toggle("fadeIn"); 
+	  imageTarget.classList.toggle("fadeIn2");
+      imageTarget.setAttribute("src", entry.target.dataset.picture);
+	}
+	else if(entry.intersectionRatio > 0.7){
+		imageTarget.classList.add("fadedOut"); 
+	}
   }
 
-  var callback = function(entries, observer) {
+  var expositionInterSectionCb = function(entries, observer) {
     function entryIntersectionCb(entry) {
       if (!isChangingColorFunAttached) {
-        window.addEventListener("scroll", getDebouncer(changeColor));
-
         isChangingColorFunAttached = true;
       }
-      // Each entry describes an intersection change for one observed
-      // target element:
-      //   entry.boundingClientRect
       var box = entry.target;
-      //   entry.boundingClientRect;
       requestIdleCallback(
         function() {
           entry;
@@ -62,19 +61,9 @@ document.addEventListener("DOMContentLoaded", function() {
           } else {
             box.classList.remove("exposition__img-container--visible");
           }
-          //   var color = `hsl(${Math.floor(
-          //     entry.intersectionRatio * 100 * 3 + basedHue
-          //   )}, 59%, 27%)`;
-          //   box.style.backgroundColor = color;
         },
         { timeout: 1000 }
       );
-
-      //   entry.intersectionRect
-      //   entry.isIntersecting
-      //   entry.rootBounds
-      //   entry.target
-      //   entry.time
     }
 
     entries.forEach(entryIntersectionCb);
@@ -84,20 +73,15 @@ document.addEventListener("DOMContentLoaded", function() {
     entries.forEach(changePictureCb);
   };
 
-  var observerExposition = new IntersectionObserver(callback, options);
-  //   var observerPictures = new IntersectionObserver(
-  //     pictureIntersectionCb,
-  //     observePicturesOptions
-  //   );
+  var observerExposition = new IntersectionObserver(
+    expositionInterSectionCb,
+    options
+  );
 
   var sectionwithPicture = document.querySelector(".exposition__item");
-  //   .forEach(function(element) {
-  //     var observerPictures = new IntersectionObserver(
-  //       pictureIntersectionCb,
-  //       observePicturesOptions
-  //     );
-  //     observerPictures.observe(element);
-  //   });
+  var secondSectionWithPicture = document.querySelectorAll(
+    ".exposition__item"
+  )[1];
 
   var observerPictures = new IntersectionObserver(
     pictureIntersectionCb,
@@ -105,14 +89,14 @@ document.addEventListener("DOMContentLoaded", function() {
   );
 
   observerPictures.observe(sectionwithPicture);
+  observerPictures.observe(secondSectionWithPicture);
 
+  //   var observerPictures2 = new IntersectionObserver(
+  //     pictureIntersectionCb,
+  //     observePicturesOptions
+  //   );
 
-  var observerPictures2 = new IntersectionObserver(
-    pictureIntersectionCb,
-    observePicturesOptions
-  );
-
-  observerPictures2.observe(document.querySelectorAll('.exposition__item')[1]);
+  //   observerPictures2.observe(secondSectionWithPicture);
   // observe section with picture
 
   var target = document.querySelector(".exposition__img-container-js");
@@ -120,10 +104,3 @@ document.addEventListener("DOMContentLoaded", function() {
 
   //   observePicturesOptions;
 });
-// on visible
-// change background by percent 1% +10 HUE, S, i L zostają takie same
-
-// document.addEventListener('click', function (event) {
-// 	if (!event.target.matches('#click-me')) return;
-// 	alert('You clicked me!');
-// }, false);
