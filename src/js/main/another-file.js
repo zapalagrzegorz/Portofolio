@@ -7,15 +7,15 @@
  *  * @param  {Function} fn The function to debounce
  */
 
-var getDebouncer = function(fn) {
+const getDebouncer = function getDebouncer(fn, ...args) {
   // Setup a timer
-  var timeout;
+  let timeout;
 
   // Return a function to run debounced
-  return function() {
+  return function getDebouncerClosure() {
     // Setup the arguments
     // var context = this;
-    var args = arguments;
+    const arg = args;
 
     // If there's a timer, cancel it
     if (timeout) {
@@ -23,8 +23,8 @@ var getDebouncer = function(fn) {
     }
 
     // Setup the new requestAnimationFrame()
-    timeout = window.requestAnimationFrame(function() {
-      fn.apply(this, args);
+    timeout = window.requestAnimationFrame(function animationFrameCb() {
+      fn.apply(this, arg);
     });
   };
 };
