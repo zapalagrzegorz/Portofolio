@@ -1,5 +1,6 @@
 const del = require("del");
 const { settings, paths } = require("./index");
+
 /**
  * Gulp Tasks
  */
