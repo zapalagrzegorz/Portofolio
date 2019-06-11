@@ -1,0 +1,100 @@
+/* globals getDebouncer */
+
+document.addEventListener("DOMContentLoaded", function mainThread() {
+
+
+  let isChangingColorFunAttached = false;
+
+  const colorfulBlock = document.querySelector(".exposition__img-container-js");
+  const imageContainer = document.querySelector(".exposition__img-js");
+  const sectionsWithPicture = document.querySelectorAll(".exposition__item");
+  
+  const observeExpositionOptions = {
+    root: null,
+    rootMargin: "0px 0px -100px 0px",
+    threshold: 0.0
+  };
+
+  const observePicturesOptions = {
+    threshold: [0, 0.65],
+    rootMargin: "0px 0px -40% 0px"
+  };
+  
+  const randomStartingColorOffset = Math.random() * 300;
+
+  /* change color of colorful block */
+  function changeColor() {
+    const exposingTopOffset = colorfulBlock.getBoundingClientRect().y;
+
+    const hue =
+      Math.floor(Math.abs(exposingTopOffset) / 15) + randomStartingColorOffset;
+    const color = `hsl(${hue}, 59%, 27%)`;
+    colorfulBlock.style.backgroundColor = color;
+  }
+
+  /* cb dla obserwatora ekspozycji */
+  function expositionInterSectionCb(entries) {
+    function entryIntersectionCb(entry) {
+      if (!isChangingColorFunAttached) {
+        isChangingColorFunAttached = true;
+      }
+      const box = entry.target;
+      requestIdleCallback(
+        function requestCb() {
+          if (entry.isIntersecting) {
+            box.classList.add("exposition__img-container--visible");
+          } else {
+            box.classList.remove("exposition__img-container--visible");
+          }
+        },
+        { timeout: 1000 }
+      );
+    }
+
+    entries.forEach(entryIntersectionCb);
+  }
+
+  /* cb dla obserwatoa zdjęć  */
+  function pictureIntersectionCb(entries) {
+
+    /* internal callback  */
+    function changePictureCb(entry) {
+      const imageTarget = document.querySelector(".exposition__img-js");
+      if (
+        entry.isIntersecting &&
+        entry.intersectionRatio < 0.8 &&
+        entry.target.dataset.picture &&
+        imageContainer.getAttribute("src") !== entry.target.dataset.picture
+      ) {
+        imageTarget.classList.remove("fadedOut");
+        imageTarget.classList.toggle("fadeIn");
+        imageTarget.classList.toggle("fadeIn2");
+        imageTarget.setAttribute("src", entry.target.dataset.picture);
+      } else if (entry.intersectionRatio > 0.7) {
+        imageTarget.classList.add("fadedOut");
+      }
+    }
+
+    entries.forEach(changePictureCb);
+  }
+
+  /* obserwator 'ekspozycji */
+  const observerExposition = new IntersectionObserver(
+    expositionInterSectionCb,
+    observeExpositionOptions
+  );
+
+  /* obserwator 'zdjęć */
+  const observerPictures = new IntersectionObserver(
+    pictureIntersectionCb,
+    observePicturesOptions
+  );
+
+  /* dodaj każdą sekcję ze zdjęciem do obserwatora 'zdjęć' */
+  sectionsWithPicture.forEach(section => observerPictures.observe(section));
+
+  /* obserwator ekspozycji obserwuje 'ekspozycję' */
+  observerExposition.observe(colorfulBlock);
+
+  window.addEventListener("scroll", getDebouncer(changeColor));
+});
