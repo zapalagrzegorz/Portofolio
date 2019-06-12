@@ -16,16 +16,21 @@
 .exposition__img {
   position: sticky;
   top: 45vh;
-  margin-top: 25vh;
+  margin-top: 35vh;
   max-width: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.fadedOut{
-    opacity: 0.2;
-    transition: opacity .3s ease-in-out;
+.expostion__header {
+  margin-bottom: 35vh;
+  margin-top: 40px;
+}
+
+.fadedOut {
+  opacity: 0.2;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .fadeIn {
@@ -39,7 +44,6 @@
   animation-name: fadeIn2;
   animation-fill-mode: forwards;
 }
-
 
 @keyframes fadeIn {
   from {
