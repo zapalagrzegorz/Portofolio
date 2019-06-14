@@ -14,4 +14,5 @@ function cleanDist(done) {
   // Signal completion
   return done();
 }
+
 exports.cleanDist = cleanDist;
