@@ -17,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function mainThread() {
   };
 
   const observePicturesOptions = {
-    threshold: [0.1],
-    rootMargin: "-10% 0px -30% 0px"
+    threshold: [0],
+    rootMargin: "-25% 0px -25% 0px"
   };
   
   const randomStartingColorOffset = Math.random() * 300;

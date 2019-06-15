@@ -31,10 +31,11 @@
 }
 
 .exposition__header {
-  margin-bottom: 35vh;
+  margin-bottom: 55vh;
   margin-top: 40px;
   &--spacer {
     color: transparent;
+    margin-bottom: 30vh;
   }
 }
 .exposition__header:last-of-type:not(.exposition__header--spacer){
