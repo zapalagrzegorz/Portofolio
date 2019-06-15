@@ -11,6 +11,13 @@
 
 .exposition__item {
   margin-bottom: 55vh;
+  &:last-of-type {
+    margin-bottom: 45vh;
+  }
+}
+
+.exposition__item:last-child {
+  margin-bottom: 25vh;
 }
 
 .exposition__img {
@@ -23,9 +30,15 @@
   margin-right: auto;
 }
 
-.expostion__header {
+.exposition__header {
   margin-bottom: 35vh;
   margin-top: 40px;
+  &--spacer {
+    color: transparent;
+  }
+}
+.exposition__header:last-of-type:not(.exposition__header--spacer){
+  margin-top: 25vh;
 }
 
 .fadedOut {
