@@ -34,7 +34,7 @@ const paths = {
         output: "dist/css/"
     },
     svgs: {
-        input: "src/svg/*.svg",
+        input: "src/svg-sprite/*.svg",
         output: "dist/svg/"
     },
     copy: {
@@ -212,16 +212,16 @@ function svgSprite() {
 }
 
 // Robi inline czego trzeba w src-master.hbs i zapisuje jako master.hbs
-// task("inlineSVGs", function() {
-//     return src("dist/index.html")
-//         .pipe(
-//             fileinclude({
-//                 prefix: "@@",
-//                 basepath: "@file"
-//             })
-//         )
-//         .pipe(gulp.dest("./dist"));
-// });
+function inlineSVG() {
+    return src("dist/index.html")
+        .pipe(
+            fileinclude({
+                prefix: "@@",
+                basepath: "@file"
+            })
+        )
+        .pipe(dest("./dist"));
+}
 
 /**
  * Export Tasks
@@ -231,7 +231,8 @@ function svgSprite() {
 // gulp
 exports.default = series(
     cleanDist,
-    parallel(lintScripts, buildScripts, buildStyles, buildSVGs, copyFiles)
+    parallel(lintScripts, buildScripts, buildStyles, svgSprite, copyFiles),
+    inlineSVG
 );
 
 exports.build = series(
