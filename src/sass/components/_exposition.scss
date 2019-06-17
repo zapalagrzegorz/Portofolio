@@ -11,21 +11,41 @@
 
 .exposition__item {
   margin-bottom: 55vh;
+  &:last-of-type {
+    margin-bottom: 45vh;
+  }
+}
+
+.exposition__item:last-child {
+  margin-bottom: 25vh;
 }
 
 .exposition__img {
   position: sticky;
   top: 45vh;
-  margin-top: 25vh;
+  margin-top: 35vh;
   max-width: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
+}
 
-.fadedOut{
-    opacity: 0.2;
-    transition: opacity .3s ease-in-out;
+.exposition__header {
+  margin-bottom: 55vh;
+  margin-top: 40px;
+  &--spacer {
+    color: transparent;
+    margin-bottom: 30vh;
+  }
+}
+.exposition__header:last-of-type:not(.exposition__header--spacer){
+  margin-top: 25vh;
+}
+
+.fadedOut {
+  opacity: 0.2;
+  transition: opacity 0.3s ease-in-out;
 }
 
 .fadeIn {
@@ -39,7 +59,6 @@
   animation-name: fadeIn2;
   animation-fill-mode: forwards;
 }
-
 
 @keyframes fadeIn {
   from {

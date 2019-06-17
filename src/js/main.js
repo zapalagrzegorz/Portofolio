@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", function mainThread() {
   const colorfulBlock = document.querySelector(".exposition__img-container-js");
   const imageContainer = document.querySelector(".exposition__img-js");
   const sectionsWithPicture = document.querySelectorAll(".exposition__item");
+  const expostionHeader = document.querySelectorAll('.exposition__header');
   
   const observeExpositionOptions = {
     root: null,
@@ -16,8 +17,8 @@ document.addEventListener("DOMContentLoaded", function mainThread() {
   };
 
   const observePicturesOptions = {
-    threshold: [0, 0.65],
-    rootMargin: "0px 0px -40% 0px"
+    threshold: [0],
+    rootMargin: "-25% 0px -25% 0px"
   };
   
   const randomStartingColorOffset = Math.random() * 300;
@@ -54,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function mainThread() {
     entries.forEach(entryIntersectionCb);
   }
 
-  /* cb dla obserwatoa zdjęć  */
+  /* cb dla obserwatora zdjęć  */
   function pictureIntersectionCb(entries) {
 
     /* internal callback  */
@@ -70,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function mainThread() {
         imageTarget.classList.toggle("fadeIn");
         imageTarget.classList.toggle("fadeIn2");
         imageTarget.setAttribute("src", entry.target.dataset.picture);
-      } else if (entry.intersectionRatio > 0.7) {
+      } else if (!entry.isIntersecting || entry.intersectionRatio > 0.7) {
         imageTarget.classList.add("fadedOut");
       }
     }
@@ -92,7 +93,11 @@ document.addEventListener("DOMContentLoaded", function mainThread() {
 
   /* dodaj każdą sekcję ze zdjęciem do obserwatora 'zdjęć' */
   sectionsWithPicture.forEach(section => observerPictures.observe(section));
-
+  
+  /* dodaj nagłówki sekcji do obserwatora - aby czyścić zdjecie przy nagłówkach */
+  expostionHeader.forEach(section => observerPictures.observe(section));
+ 
+  
   /* obserwator ekspozycji obserwuje 'ekspozycję' */
   observerExposition.observe(colorfulBlock);
 
