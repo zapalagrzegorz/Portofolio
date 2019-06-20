@@ -1,7 +1,16 @@
+.exposition__img {
+  position: sticky;
+  top: 40vh;
+  margin-top: 35vh;
+  max-width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10vh;
+}
+
 .exposition__img-container {
-  // background-color: hsl(119, 59%, 27%);
   transition: background-color 0.3s linear, max-width 0.6s ease-in-out;
-  // trans
   max-width: 2px;
   background-color: transparent;
   &--visible {
@@ -14,20 +23,9 @@
   &:last-of-type {
     margin-bottom: 45vh;
   }
-}
-
-.exposition__item:last-child {
-  margin-bottom: 25vh;
-}
-
-.exposition__img {
-  position: sticky;
-  top: 45vh;
-  margin-top: 35vh;
-  max-width: 90%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  &:last-child {
+    // margin-bottom: 25vh;
+  }
 }
 
 .exposition__header {
@@ -37,42 +35,12 @@
     color: transparent;
     margin-bottom: 30vh;
   }
-}
-.exposition__header:last-of-type:not(.exposition__header--spacer){
-  margin-top: 25vh;
-}
-
-.fadedOut {
-  opacity: 0.2;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.fadeIn {
-  animation-duration: 1s;
-  animation-name: fadeIn;
-  animation-fill-mode: forwards;
-}
-
-.fadeIn2 {
-  animation-duration: 1s;
-  animation-name: fadeIn2;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
+  &:last-of-type:not(.exposition__header--spacer) {
+    margin-top: 25vh;
   }
 }
 
-@keyframes fadeIn2 {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+.section-spacer {
+  margin-bottom: 30vh;
 }
+

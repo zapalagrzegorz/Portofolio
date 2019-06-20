@@ -1,0 +1,34 @@
+.fadedOut {
+    opacity: 0.2;
+    transition: opacity 0.3s ease-in-out;
+  }
+
+  .fadeIn {
+    animation-duration: 1s;
+    animation-name: fadeIn;
+    animation-fill-mode: forwards;
+  }
+
+  .fadeIn2 {
+    animation-duration: 1s;
+    animation-name: fadeIn2;
+    animation-fill-mode: forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes fadeIn2 {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
