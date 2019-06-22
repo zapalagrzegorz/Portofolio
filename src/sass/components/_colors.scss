@@ -1,16 +1,11 @@
 //#region COLORS
 
-$primary-color: white;
-$secondary-color: black;
-$black: #272727;
-$past-events: #f2f4f5;
-
 .primary-color {
-    color: $primary-color;
+    color: $primary;
 }
 
 .primary-color-fill {
-    fill: $primary-color;
+    fill: $primary;
 
     &--transparent {
         opacity: .5;
@@ -18,12 +13,12 @@ $past-events: #f2f4f5;
 }
 
 .secondary-color {
-    color: $secondary-color;
+    color: $secondary;
 }
 
 
 .fill-secondary-color {
-    fill: $secondary-color;
+    fill: $secondary;
 }
 
 .white {
@@ -64,11 +59,11 @@ $past-events: #f2f4f5;
 
 
 .primary-background {
-    background-color: $primary-color;
+    background-color: $primary;
 }
 
 .background-secondary {
-    background-color: $secondary-color;
+    background-color: $secondary;
 }
 
 //#endregion

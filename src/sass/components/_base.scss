@@ -2,20 +2,27 @@
  * @section Base Styles
  */
 
-body {
-	background-color: $secondary-color;
-	// font-family: 
-	// font-size: 125%;
-	// margin: 0 auto;
-	// max-width: 42em;
-	// width: 88%;
-}
-
-
 
 input,
 textarea,
 select,
 button {
 	font: inherit;
+}
+
+.svg {
+	height: 2em;
+    width: 2em;
+	margin-left: 1em;
+	&--small {
+		height: 1.5em;
+		width: 1.5em;
+	}
+} 
+
+.link-black {
+	color: $secondary;
+	&:hover {
+		color: lighten($secondary, 15%);
+	}
 }
