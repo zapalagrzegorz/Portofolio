@@ -1,12 +1,15 @@
 .exposition__img {
   position: sticky;
-  top: 40vh;
-  margin-top: 35vh;
+  top: 40vmax;
+  // margin-top: 35vmax;
   max-width: 90%;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-bottom: 10vh;
+  margin-bottom: 10vmax;
+ @include media-breakpoint-up(lg) {
+    top: 40vh
+  }
 }
 
 .exposition__img-container {
@@ -19,9 +22,9 @@
 }
 
 .exposition__item {
-  margin-bottom: 55vh;
+  margin-bottom: 55vmin;
   &:last-of-type {
-    margin-bottom: 45vh;
+    margin-bottom: 45min;
   }
   &:last-child {
     // margin-bottom: 25vh;
@@ -29,18 +32,21 @@
 }
 
 .exposition__header {
-  margin-bottom: 55vh;
-  margin-top: 40px;
+  margin-bottom: 55vmin;
+  margin-top: 20vmin;
+
   &--spacer {
     color: transparent;
-    margin-bottom: 30vh;
+    margin-top: 40px;
+    margin-bottom: 30vmin;
   }
+
+  // ?
   &:last-of-type:not(.exposition__header--spacer) {
-    margin-top: 25vh;
+    margin-top: 20vmin;
   }
 }
 
 .section-spacer {
-  margin-bottom: 30vh;
+  margin-bottom: 30vmin;
 }
-
