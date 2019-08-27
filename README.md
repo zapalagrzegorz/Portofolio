@@ -1,2 +1,1 @@
 # portofolio
-przegląd prac
