@@ -40,6 +40,10 @@ const paths = {
     input: "src/copy/**/*",
     output: "dist/"
   },
+  copyHTML: {
+    input: "dist/index.html",
+    output: "./"
+  },
   reload: "./dist/"
 };
 exports.paths = paths;
@@ -182,6 +186,15 @@ function copyFiles(done) {
   return src(paths.copy.input).pipe(dest(paths.copy.output));
 }
 
+// Copy static files into output folder
+function copyHtml(done) {
+  // Make sure this feature is activated before running
+  if (!settings.copy) return done();
+
+  // Copy static files
+  return src(paths.copyHTML.input).pipe(dest(paths.copyHTML.output));
+}
+
 // Watch for changes to the src directory
 function startServer(done) {
   // Make sure this feature is activated before running
@@ -226,12 +239,13 @@ exports.default = series(
 // argv - production
 exports.build = series(
   cleanDist,
-  parallel(lintScripts, buildScripts, buildStyles, svgSprite, copyFiles),
-  inlineComponents
+  parallel(lintScripts, buildScripts, buildStyles, svgSprite, copyFiles,),
+  inlineComponents, copyHtml
 );
 
 exports.svgSprite = svgSprite;
 
+exports.copyHtml = copyHtml;
 // Watch and reload
 // gulp watch
 exports.watch = series(exports.default, startServer, watchSource);
