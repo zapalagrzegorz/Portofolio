@@ -223,6 +223,7 @@ exports.default = series(
   inlineComponents
 );
 
+// argv - production
 exports.build = series(
   cleanDist,
   parallel(lintScripts, buildScripts, buildStyles, svgSprite, copyFiles),
