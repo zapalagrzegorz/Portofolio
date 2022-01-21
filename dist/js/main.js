@@ -33,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function mainThread() {
     colorfulBlock.style.backgroundColor = color;
   }
 
+  /* wydzielić na dwa pliki */
   /* cb dla obserwatora ekspozycji */
   function expositionInterSectionCb(entries) {
     function entryIntersectionCb(entry) {
